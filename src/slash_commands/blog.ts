@@ -10,7 +10,7 @@ export async function blog_commands(client: Client) {
             if (interaction.options.getSubcommand() == 'register') {
                 const user = await prisma.blogUser.findUnique({where: {userId: interaction.user.id}})
                 if (!user) {
-                    await prisma.blogUser.create({data:{userId: interaction.user.id}})
+                    await prisma.blogUser.create({data: {userId: interaction.user.id}})
                 }
 
                 const blog = await prisma.blog.findUnique({where: {channelId: interaction.channelId}})

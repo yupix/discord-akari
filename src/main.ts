@@ -1,4 +1,4 @@
-import {Message, Client, Intents} from 'discord.js';
+import {Client, Intents, Message} from 'discord.js';
 import dotenv from 'dotenv';
 import {client_commands} from "./slash_commands/basic";
 import {blog_commands} from "./slash_commands/blog";
@@ -33,7 +33,7 @@ client.once('ready', async () => {
     }
 })
 
-client.on('messageCreate', (message: Message) => {
+client.on('messageCreate', async (message: Message) => {
     if (message.author.bot) return
     console.log(message.author.username, message.content)
 })
